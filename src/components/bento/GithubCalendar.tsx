@@ -49,13 +49,6 @@ const GithubCalendar: FunctionComponent<Props> = ({ username, ...props }) => {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center gap-4">
-        <img
-          src="/static/images/bento/bento-discord-futon.svg"
-          alt="Error"
-          width={0}
-          height={0}
-          className="bento-lg:w-48 h-auto w-24"
-        />
         <p className="bento-lg:w-64 w-48 text-center text-sm text-muted-foreground">
           This component is down. Please email me!
         </p>
