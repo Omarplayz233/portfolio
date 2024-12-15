@@ -1,19 +1,10 @@
 ---
 import DiscordPresence from '@/components/bento/DiscordPresence.tsx'
 import GithubCalendar from '@/components/bento/GithubCalendar.tsx'
-import WakatimeGraph from '@/components/bento/WakatimeGraph.tsx'
 import Container from '@/components/Container.astro'
-import Link from '@/components/Link.astro'
-import { buttonVariants } from '@/components/ui/button'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
-
-// Fetch the blog collection, excluding drafts, sorting by date, and limiting the number of posts
-const blog = (await getCollection('blog'))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 ---
 
 <Layout title="Home" description={SITE.DESCRIPTION}>

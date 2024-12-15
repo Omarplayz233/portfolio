@@ -1,10 +1,8 @@
 ---
 import Link from '@/components/Link.astro'
 import AvatarComponent from '@/components/ui/avatar'
-import type { Link as SocialLink } from '@/consts'
-import { cn } from '@/lib/utils'
 import type { CollectionEntry } from 'astro:content'
-import SocialIcons from './SocialIcons.tsx'
+import { cn } from '@/lib/utils'
 
 type Props = {
   author: CollectionEntry<'authors'>
@@ -16,20 +14,7 @@ const {
   avatar,
   bio,
   pronouns,
-  github,
-  twitter,
-  linkedin,
-  website,
-  mail,
 } = author.data
-
-const socialLinks: SocialLink[] = [
-  website && { href: website, label: 'Website' },
-  github && { href: github, label: 'GitHub' },
-  twitter && { href: twitter, label: 'Twitter' },
-  linkedin && { href: linkedin, label: 'LinkedIn' },
-  mail && { href: mail, label: 'Email' },
-].filter(Boolean) as SocialLink[]
 ---
 
 <div
@@ -64,7 +49,7 @@ const socialLinks: SocialLink[] = [
         </div>
         <p class="text-sm text-muted-foreground">{bio}</p>
       </div>
-      <SocialIcons links={socialLinks} />
     </div>
   </div>
 </div>
+
