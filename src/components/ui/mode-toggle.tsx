@@ -43,7 +43,7 @@ export function ModeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="group"
+          className="group h-9 w-9 rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition-colors"
           title="Toggle theme"
         >
           <Sun className="size-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -51,7 +51,7 @@ export function ModeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-background">
+      <DropdownMenuContent align="end" className="bg-background rounded-xl shadow-md">
         <DropdownMenuItem onClick={() => setThemeState('theme-light')}>
           <Sun className="mr-2 size-4" />
           <span>Light</span>
@@ -68,3 +68,4 @@ export function ModeToggle() {
     </DropdownMenu>
   )
 }
+

@@ -1,19 +1,15 @@
 ---
-import BlogCard from '@/components/BlogCard.astro'
+import DiscordPresence from '@/components/bento/DiscordPresence.tsx'
+import GithubCalendar from '@/components/bento/GithubCalendar.tsx'
+import WakatimeGraph from '@/components/bento/WakatimeGraph.tsx'
 import Container from '@/components/Container.astro'
 import Link from '@/components/Link.astro'
 import { buttonVariants } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
+// Fetch the blog collection, excluding drafts, sorting by date, and limiting the number of posts
 const blog = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -21,79 +17,27 @@ const blog = (await getCollection('blog'))
 ---
 
 <Layout title="Home" description={SITE.DESCRIPTION}>
+  <!-- Main container holding all content -->
   <Container class="flex flex-col gap-y-6">
+
+    <!-- Spacer (this adds the space between the topbar and the content) -->
+    <div class="h-16 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div><!-- Adjust h-8 to whatever height you need for the space -->
+
+    <!-- Discord Presence Section -->
     <section>
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl">er·u·dite</CardTitle>
-          <CardDescription
-            >/ˈer(y)əˌdīt/ &bull; <span class="font-semibold">adjective</span
-            ></CardDescription
-          >
-        </CardHeader>
-        <CardContent>
-          <p class="mb-2 text-sm text-muted-foreground">
-            astro-erudite is an opinionated, no-frills static blogging template
-            built with <Link
-              href="https://astro.build"
-              class="text-foreground"
-              external
-              underline>Astro</Link
-            >, <Link
-              href="https://tailwindcss.com"
-              class="text-foreground"
-              external
-              underline>Tailwind</Link
-            >, and <Link
-              href="https://ui.shadcn.com"
-              class="text-foreground"
-              external
-              underline>shadcn/ui</Link
-            >. Extraordinarily loosely based on the <Link
-              href="https://astro-micro.vercel.app/"
-              class="text-foreground"
-              external
-              underline>Astro Micro</Link
-            > theme.
-          </p>
-          <p class="text-sm text-muted-foreground">
-            To use this template, check out the <Link
-              href="https://github.com/jktrn/astro-erudite"
-              class="text-foreground"
-              underline
-              external>GitHub</Link
-            > repository. To learn more about why this template exists, read this
-            blog post: <Link
-              href="/blog/the-state-of-static-blogs"
-              class="text-foreground"
-              underline>The State of Static Blogs in 2024</Link
-            >.
-          </p>
-        </CardContent>
-      </Card>
+      <div class="relative overflow-hidden [grid-area:d] sm:aspect-square">
+        <DiscordPresence client:load />
+      </div>
     </section>
-    <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-bold">Latest posts</h2>
-      <ul class="not-prose flex flex-col gap-y-4">
-        {
-          blog.map((post) => (
-            <li>
-              <BlogCard entry={post} />
-            </li>
-          ))
-        }
-      </ul>
-      <div class="flex justify-center">
-        <Link
-          href="/blog"
-          class={buttonVariants({ variant: 'ghost' }) + ' group'}
-        >
-          See all posts <span
-            class="ml-1.5 transition-transform group-hover:translate-x-1"
-            >&rarr;</span
-          >
-        </Link>
+
+    <!-- Github Calendar Section -->
+    <section>
+      <div
+        class="has-overlay relative flex aspect-square items-center justify-center overflow-hidden [grid-area:f] hover:bg-none sm:aspect-[2.1/1] xl:aspect-auto xl:bg-[url('/static/bento/contributions-silhouette.webp')]"
+      >
+        <GithubCalendar username="Omarplayz233" client:load />
       </div>
     </section>
   </Container>
 </Layout>
+

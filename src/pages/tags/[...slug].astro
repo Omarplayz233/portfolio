@@ -37,6 +37,8 @@ export async function getStaticPaths() {
   description={`A collection of posts tagged with ${tag}.`}
 >
   <Container class="flex flex-col gap-y-6">
+  <!-- Spacer (this adds the space between the topbar and the content) -->
+  <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
     <Breadcrumbs
       items={[
         { href: '/tags', label: 'Tags', icon: 'lucide:tags' },

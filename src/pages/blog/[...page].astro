@@ -35,6 +35,7 @@ const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
 ---
 
 <Layout title="Blog" description="Blog">
+  <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
   <Container class="flex grow flex-col gap-y-6">
     <Breadcrumbs
       items={[
