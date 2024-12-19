@@ -19,7 +19,7 @@ export const SITE: Site = {
   EMAIL: 'hi@dev.omarplayz.eu.org',
   NUM_POSTS_ON_HOMEPAGE: 2,
   POSTS_PER_PAGE: 3,
-  SITEURL: 'https://omarplayz.eu.org',
+  SITEURL: 'https://beta.omarplayz.eu.org',
 }
 
 export const NAV_LINKS: Link[] = [
