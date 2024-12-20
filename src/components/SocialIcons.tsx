@@ -1,4 +1,4 @@
-import { TbBrandBluesky, TbBrandGithub, TbBrandDiscord, TbMail } from 'react-icons/tb';
+import { TbBrandBluesky, TbBrandGithub, TbBrandDiscord, TbMail, TbRss } from 'react-icons/tb';
 
 const socialLinks = [
   {
@@ -20,6 +20,11 @@ const socialLinks = [
     href: "mailto:hi@dev.omarplayz.eu.org", // Replace with your actual email address
     ariaLabel: "Email",
     Icon: TbMail
+  },
+  {
+    href: "https://beta.omarplayz.eu.org/rss.xml",
+    ariaLabel: "RSS",
+    Icon: TbRss
   }
 ];
 

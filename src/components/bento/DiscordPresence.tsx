@@ -1,5 +1,4 @@
 import { useMemo, useState, useEffect } from 'react'
-import { FaDiscord } from 'react-icons/fa'
 import { useLanyard } from 'react-use-lanyard'
 import { Skeleton } from '../ui/skeleton'
 import { cn, getElapsedTime } from '@/lib/utils'
@@ -71,7 +70,7 @@ const DiscordPresence = () => {
                 src={`https://cdn.discordapp.com/avatars/${lanyard.data.discord_user.id}/${lanyard.data.discord_user.avatar}.webp?size=128`}
                 alt="Avatar"
                 fallback="e"
-                className="-mt-[4.5rem] aspect-square size-24 rounded-full grayscale"
+                className="-mt-[4.5rem] aspect-square size-24 rounded-full"
               />
               <div
                 className={cn(

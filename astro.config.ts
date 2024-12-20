@@ -68,6 +68,11 @@ export default defineConfig({
     port: 1234,
     host: true,
   },
+  vite: {
+    build: {
+      sourcemap: true
+    }
+  },
   devToolbar: {
     enabled: false,
   },
