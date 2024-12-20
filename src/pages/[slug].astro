@@ -1,0 +1,32 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'royalpear' } },
+    { params: { slug: 'pearify' } },
+    { params: { slug: 'pearify-firefox' } }
+  ];
+}
+
+const { slug } = Astro.params;
+
+if (slug === 'royalpear') {
+  return Astro.redirect('https://youtube.com/@RoyalPear');
+}
+
+if (slug === 'pearify') {
+  return Astro.redirect('https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en');
+}
+
+if (slug === 'pearify-firefox') {
+  return Astro.redirect('https://addons.mozilla.org/en-GB/firefox/addon/youtube-pearify/');
+}
+---
+
+<html>
+  <head>
+    <title>Not Found</title>
+  </head>
+  <body>
+    <h1>Not Found</h1>
+  </body>
+</html>
