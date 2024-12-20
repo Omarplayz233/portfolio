@@ -1,5 +1,3 @@
-'use client'
-
 import { Skeleton } from '@/components/ui/skeleton'
 import { type FunctionComponent, useCallback, useEffect, useState } from 'react'
 import Calendar, {
