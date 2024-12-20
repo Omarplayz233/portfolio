@@ -38,7 +38,7 @@ export default function SocialIcons() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-white transition-all ease-in-out hover:bg-white/10"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-foreground dark:text-white transition-colors ease-in-out **hover:bg-gray-200 dark:hover:bg-gray-700**"
             aria-label={ariaLabel}
           >
             <Icon size={18} />
@@ -48,5 +48,3 @@ export default function SocialIcons() {
     </footer>
   );
 }
-
-
