@@ -77,7 +77,7 @@ export default defineConfig({
     enabled: false,
   },
   redirects: {
-    '/royalpear': 'https://youtube.com/@RoyalPear',
+    '/royalpear': '/royalpear/',  // Automatically redirects to the canonical form
     '/royalpear/': 'https://youtube.com/@RoyalPear',
     '/pearify': 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en',
     '/pearify/': 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en',
