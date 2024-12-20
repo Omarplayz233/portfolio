@@ -5,6 +5,7 @@ import Container from '@/components/Container.astro'
 import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { type CollectionEntry, getCollection } from 'astro:content'
+import Analytics from '@vercel/analytics/astro'
 
 type BlogPost = CollectionEntry<'blog'>
 
@@ -39,6 +40,7 @@ export async function getStaticPaths() {
   <Container class="flex flex-col gap-y-6">
   <!-- Spacer (this adds the space between the topbar and the content) -->
   <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
+  <Analytics/>
     <Breadcrumbs
       items={[
         { href: '/tags', label: 'Tags', icon: 'lucide:tags' },

@@ -4,12 +4,14 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Container from '@/components/Container.astro'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+import Analytics from '@vercel/analytics/astro'
 
 const authors = await getCollection('authors')
 ---
 
 <Layout title="Authors" description="A list of authors on this site.">
   <Container class="flex flex-col gap-y-6">
+    <Analytics/>
     <Breadcrumbs items={[{ label: 'Authors', icon: 'lucide:users' }]} />
     {
       authors.length > 0 ? (

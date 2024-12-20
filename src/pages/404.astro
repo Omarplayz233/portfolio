@@ -6,6 +6,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { cn } from '@/lib/utils'
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <Layout title="404" description={SITE.DESCRIPTION}>
@@ -33,6 +34,7 @@ import { cn } from '@/lib/utils'
           >&larr;</span
         > Go to home page
       </Link>
+      <Analytics/>
     </section>
   </Container>
 </Layout>

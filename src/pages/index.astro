@@ -4,6 +4,7 @@ import GithubCalendar from '@/components/bento/GithubCalendar.tsx'
 import Container from '@/components/Container.astro'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <Layout title="Home" description={SITE.DESCRIPTION}>
@@ -19,6 +20,8 @@ import Layout from '@/layouts/Layout.astro'
         <DiscordPresence client:load />
       </div>
     </section>
+    
+    <Analytics/>
 
     <!-- Github Calendar Section -->
     <section>

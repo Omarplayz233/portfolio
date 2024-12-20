@@ -11,6 +11,7 @@ import { formatDate, parseAuthors, readingTime } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import { type CollectionEntry, getCollection } from 'astro:content'
+import Analytics from '@vercel/analytics/astro'
 
 export async function getStaticPaths() {
   const posts = (await getCollection('blog'))
@@ -59,6 +60,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
   image={post.data.image?.src ?? '/static/1200x630.png'}
     >
     <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
+    <Analytics/>
   <section
     class="grid grid-cols-[minmax(0px,1fr)_min(768px,100%)_minmax(0px,1fr)] gap-y-6 *:px-4"
   >

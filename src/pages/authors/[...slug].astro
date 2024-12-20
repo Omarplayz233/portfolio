@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Container from '@/components/Container.astro'
 import Layout from '@/layouts/Layout.astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
+import Analytics from '@vercel/analytics/astro'
 
 export async function getStaticPaths() {
   const authors = await getCollection('authors')
@@ -31,7 +32,8 @@ const authorPosts = allPosts
 <Layout
   title={`${author.data.name} (Author)`}
   description={author.data.bio || `Profile of ${author.data.name}.`}
->
+    >
+zsh:1: command not found: q
   <Container class="flex flex-col gap-y-6">
     <Breadcrumbs
       items={[
