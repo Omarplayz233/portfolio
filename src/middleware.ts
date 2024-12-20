@@ -1,6 +1,6 @@
 import type { MiddlewareHandler } from 'astro';
 
-export const onRequest: MiddlewareHandler = async ({ request, response }) => {
+export const onRequest: MiddlewareHandler = async ({ request }) => {
   // Define your redirect rules
   const redirects: Record<string, string> = {
     '/royalpear': 'https://youtube.com/@RoyalPear',
@@ -14,6 +14,7 @@ export const onRequest: MiddlewareHandler = async ({ request, response }) => {
   // Check if the request matches a redirect
   const redirectUrl = redirects[new URL(request.url).pathname];
   if (redirectUrl) {
+    // Return a redirect response
     return new Response(null, {
       status: 301,
       headers: {
@@ -23,6 +24,6 @@ export const onRequest: MiddlewareHandler = async ({ request, response }) => {
   }
 
   // If no redirect matches, proceed normally
-  return response.next();
+  return new Response('Not Found', { status: 404 });
 };
 
