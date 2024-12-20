@@ -21,7 +21,7 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://beta.omarplayz.eu.org',
+  site: 'https://omarplayz.eu.org',
   integrations: [
     tailwind({
       applyBaseStyles: false,
