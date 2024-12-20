@@ -1,3 +1,4 @@
+import { defineConfig } from 'astro/config'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
@@ -8,7 +9,6 @@ import {
   transformerMetaHighlight,
   transformerNotationDiff,
 } from '@shikijs/transformers'
-import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -21,7 +21,7 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://omarplayz.eu.org',
+  site: 'https://beta.omarplayz.eu.org',
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -70,19 +70,19 @@ export default defineConfig({
   },
   vite: {
     build: {
-      sourcemap: true
-    }
+      sourcemap: true,
+    },
   },
   devToolbar: {
     enabled: false,
   },
-  redirects: [
-    { source: '/royalpear', destination: 'https://youtube.com/@RoyalPear', status: 301 },
-    { source: '/royalpear/', destination: 'https://youtube.com/@RoyalPear', status: 301 },
-    { source: '/pearify', destination: 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en', status: 301 },
-    { source: '/pearify/', destination: 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en', status: 301 },
-    { source: '/pearify-firefox', destination: 'https://addons.mozilla.org/en-GB/firefox/addon/youtube-pearify/', status: 301 },
-    { source: '/pearify-firefox/', destination: 'https://addons.mozilla.org/en-GB/firefox/addon/youtube-pearify/', status: 301 },
-  ],
+  redirects: {
+    '/royalpear': 'https://youtube.com/@RoyalPear',
+    '/royalpear/': 'https://youtube.com/@RoyalPear',
+    '/pearify': 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en',
+    '/pearify/': 'https://chromewebstore.google.com/detail/youtube-pearify/jafognbanchcefpohggjafiolgfddbmd?authuser=0&hl=en',
+    '/pearify-firefox': 'https://addons.mozilla.org/en-GB/firefox/addon/youtube-pearify/',
+    '/pearify-firefox/': 'https://addons.mozilla.org/en-GB/firefox/addon/youtube-pearify/',
+  },
 })
 
