@@ -22,7 +22,7 @@ const socialLinks = [
     Icon: TbMail
   },
   {
-    href: "https://beta.omarplayz.eu.org/rss.xml",
+    href: "https://omarplayz.eu.org/rss.xml",
     ariaLabel: "RSS",
     Icon: TbRss
   }
