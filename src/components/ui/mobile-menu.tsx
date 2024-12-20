@@ -33,10 +33,13 @@ const MobileMenu = () => {
         <Button
           variant="outline"
           size="icon"
-          className="md:hidden **rounded-xl**"
+          className="md:hidden p-0 bg-gray-800 rounded-xl"
           title="Menu"
         >
-          <Menu className="h-5 w-5" />
+          {/* Added flex container around the icon */}
+          <div className="flex items-center justify-center h-9 w-9 rounded-xl bg-gray-800 text-white">
+            <Menu className="h-5 w-5" />
+          </div>
           <span className="sr-only">Toggle menu</span>
         </Button>
       </DropdownMenuTrigger>
@@ -58,3 +61,4 @@ const MobileMenu = () => {
 }
 
 export default MobileMenu
+
