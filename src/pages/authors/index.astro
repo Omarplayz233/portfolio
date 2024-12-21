@@ -12,6 +12,7 @@ const authors = await getCollection('authors')
 <Layout title="Authors" description="A list of authors on this site.">
   <Container class="flex flex-col gap-y-6">
     <Analytics/>
+    <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
     <Breadcrumbs items={[{ label: 'Authors', icon: 'lucide:users' }]} />
     {
       authors.length > 0 ? (

@@ -9,28 +9,34 @@ import Analytics from '@vercel/analytics/astro'
 
 <Layout title="Home" description={SITE.DESCRIPTION}>
   <!-- Main container holding all content -->
-  <Container class="flex flex-col gap-y-6">
+  <Container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
     <!-- Spacer (this adds the space between the topbar and the content) -->
-    <div class="h-16 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div><!-- Adjust h-8 to whatever height you need for the space -->
+    <div class="col-span-full h-16 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
 
     <!-- Discord Presence Section -->
-    <section>
-      <div class="relative overflow-hidden [grid-area:d] sm:aspect-square">
-        <DiscordPresence client:load />
+    <div class="w-full h-full min-h-[200px] max-w-sm mx-auto rounded-xl border bg-background">
+      <div class="p-4 h-full">
+        <section class="h-full">
+          <div class="relative overflow-hidden h-full">
+            <DiscordPresence client:load />
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
     
-    <Analytics/>
-
     <!-- Github Calendar Section -->
-    <section>
-      <div
-        class="has-overlay relative flex aspect-square items-center justify-center overflow-hidden [grid-area:f] hover:bg-none sm:aspect-[2.1/1] xl:aspect-auto xl:bg-[url('')]"
-      >
-        <GithubCalendar username="Omarplayz233" client:load />
+    <div class="w-full h-full min-h-[200px] max-w-sm mx-auto rounded-xl border bg-background">
+      <div class="p-4 h-full">
+        <section class="h-full">
+          <div class="has-overlay relative flex h-full items-center justify-center overflow-hidden hover:bg-none">
+            <GithubCalendar username="Omarplayz233" client:load />
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
+
+    <Analytics/>
   </Container>
 </Layout>
 

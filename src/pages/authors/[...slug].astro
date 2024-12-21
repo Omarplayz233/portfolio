@@ -33,7 +33,8 @@ const authorPosts = allPosts
   title={`${author.data.name} (Author)`}
   description={author.data.bio || `Profile of ${author.data.name}.`}
     >
-  <Container class="flex flex-col gap-y-6">
+    <Container class="flex flex-col gap-y-6">
+  <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
   <Analytics/>
     <Breadcrumbs
       items={[
