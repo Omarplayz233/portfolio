@@ -18,6 +18,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Twemoji';
+  src: url('/fonts/twemoji.ttf') format('truetype');
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -54,6 +60,10 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+  }
+
+  .emoji {
+    font-family: 'Twemoji', sans-serif;
   }
 
   *,

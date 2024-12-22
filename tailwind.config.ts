@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   darkMode: ['selector'],
@@ -9,6 +9,7 @@ const config: Config = {
       fontFamily: {
         sans: ['Geist', ...defaultTheme.fontFamily.sans],
         mono: ['Geist Mono', ...defaultTheme.fontFamily.mono],
+        twemoji: ['Twemoji', 'sans-serif'], // Added Twemoji font
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -43,6 +44,7 @@ const config: Config = {
     },
   },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
-}
+};
 
-export default config
+export default config;
+
