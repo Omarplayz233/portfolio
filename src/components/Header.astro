@@ -7,38 +7,39 @@ import { Image } from 'astro:assets'
 import logo from '../../public/static/avatar.webp'
 ---
 
-<div class="fixed z-[9999] top-0 left-0 right-0 flex items-center justify-center w-full">
-  <div class="w-11/12 md:w-10/12 max-w-3xl mt-4 flex items-center justify-between rounded-xl border border-white/20 bg-gray-800 p-1 shadow-xl backdrop-blur-lg bg-white/10">
-    <div class="relative">
-      <Link
-        href="/"
-        class="flex flex-shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
-      >
-        <div class="mr-2 flex h-9 w-9 items-center justify-center rounded-xl bg-orange-500 overflow-hidden">
-          <Image src={logo} alt="Logo" width={36} height={36} class="object-cover" loading="eager" />
-        </div>
-      </Link>
-      <span class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs font-bold px-1 py-0.5 rounded-full">
-        BETA
-      </span>
-    </div>
+<header>
+  <div class="fixed z-[9999] top-0 left-0 right-0 flex items-center justify-center w-full h-16">
+    <div class="w-11/12 md:w-10/12 max-w-3xl mt-4 flex items-center justify-between rounded-xl border border-white/20 bg-gray-800 p-1 shadow-xl backdrop-blur-lg bg-white/10">
+      <div class="relative">
+        <Link
+          href="/"
+          class="flex flex-shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
+        >
+          <div class="mr-2 flex h-9 w-9 items-center justify-center rounded-xl bg-orange-500 overflow-hidden">
+            <Image src={logo} alt="Logo" width={36} height={36} class="object-cover" loading="eager" />
+          </div>
+        </Link>
+        <span class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs font-bold px-1 py-0.5 rounded-full">
+          BETA
+        </span>
+      </div>
 
-    <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
-      {
-        NAV_LINKS.map((item) => (
+      <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
+        {NAV_LINKS.map((item) => (
           <Link
             href={item.href}
-            class="capitalize text-foreground/60 transition-colors hover:text-foreground/80 **rounded-xl px-3 py-1**"
+            class="capitalize text-foreground/60 transition-colors hover:text-foreground/80 rounded-xl px-3 py-1"
           >
             {item.label}
           </Link>
-        ))
-      }
-    </nav>
+        ))}
+      </nav>
 
-    <div class="flex items-center gap-2 md:gap-4">
-      <MobileMenu client:load transition:persist />
-      <ModeToggle client:load transition:persist />
+      <div class="flex items-center gap-2 md:gap-4">
+        <MobileMenu client:load transition:persist />
+        <ModeToggle client:load transition:persist />
+      </div>
     </div>
   </div>
-</div>
+</header>
+

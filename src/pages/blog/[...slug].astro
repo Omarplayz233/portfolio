@@ -57,41 +57,39 @@ const authors = await parseAuthors(post.data.authors ?? [])
   title={post.data.title}
   description={post.data.description}
   image={post.data.image?.src ?? '/static/1200x630.png'}
-    >
-    <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
-    <Analytics/>
-  <section
-    class="grid grid-cols-[minmax(0px,1fr)_min(768px,100%)_minmax(0px,1fr)] gap-y-6 *:px-4"
-  >
-    <Breadcrumbs
-      items={[
-        { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
-        { label: post.data.title, icon: 'lucide:file-text' },
-      ]}
-      class="col-start-2"
-    />
-    {
-      post.data.image && (
-        <Image
-          src={post.data.image}
-          alt={post.data.title}
-          width={1200}
-          height={630}
-          class="col-span-full mx-auto w-full max-w-[1000px] object-cover"
-        />
-      )
-    }
-    <section class="col-start-2 flex flex-col gap-y-6 text-center">
-      <div class="flex flex-col gap-y-4">
-        <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
-          {post.data.title}
-        </h1>
+>
+  <div class="fixed top-0 left-0 right-0 h-24 bg-[var(--muted)] dark:bg-[var(--secondary)] z-10" />
+  <Analytics />
+  <main class="relative pt-24">
+    <div class="mx-auto max-w-[768px] px-4">
+      <Breadcrumbs
+        items={[
+          { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
+          { label: post.data.title, icon: 'lucide:file-text' },
+        ]}
+        class="mb-6"
+      />
+      
+      {post.data.image && (
+        <div class="mb-6">
+          <Image
+            src={post.data.image}
+            alt={post.data.title}
+            width={1200}
+            height={630}
+            class="w-full object-cover"
+          />
+        </div>
+      )}
+      
+      <div class="flex flex-col gap-y-6 text-center mb-6">
+        <div class="flex flex-col gap-y-4">
+          <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+            {post.data.title}
+          </h1>
 
-        <div
-          class="flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground"
-        >
-          {
-            authors.length > 0 && (
+          <div class="flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
+            {authors.length > 0 && (
               <>
                 <div class="flex items-center gap-x-2">
                   {authors.map((author) => (
@@ -119,17 +117,16 @@ const authors = await parseAuthors(post.data.authors ?? [])
                 </div>
                 <Separator orientation="vertical" className="h-4" />
               </>
-            )
-          }
-          <div class="flex items-center gap-2">
-            <span>{formatDate(post.data.date)}</span>
-            <Separator orientation="vertical" className="h-4" />
-            <span>{readingTime(post.body)}</span>
+            )}
+            <div class="flex items-center gap-2">
+              <span>{formatDate(post.data.date)}</span>
+              <Separator orientation="vertical" className="h-4" />
+              <span>{readingTime(post.body)}</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-center gap-2">
-          {
-            post.data.tags && post.data.tags.length > 0 ? (
+
+          <div class="flex flex-wrap justify-center gap-2">
+            {post.data.tags && post.data.tags.length > 0 ? (
               post.data.tags.map((tag) => (
                 <a
                   href={`/tags/${tag}`}
@@ -143,23 +140,25 @@ const authors = await parseAuthors(post.data.authors ?? [])
               <span class="text-sm text-muted-foreground">
                 No tags available
               </span>
-            )
-          }
+            )}
+          </div>
         </div>
       </div>
 
-      <PostNavigation prevPost={prevPost} nextPost={nextPost} />
-    </section>
+      {headings.length > 0 && (
+        <div class="mb-6">
+          <TableOfContents headings={headings} />
+        </div>
+      )}
 
-    {headings.length > 0 && <TableOfContents headings={headings} />}
+      <article class="prose prose-neutral max-w-none dark:prose-invert mb-6">
+        <Content />
+      </article>
 
-    <article
-      class="prose prose-neutral col-start-2 max-w-none dark:prose-invert"
-    >
-      <Content />
-    </article>
-
-      <PostNavigation prevPost={prevPost} nextPost={nextPost} />
-      <div class="h-24 bg-[var(--muted)] dark:bg-[var(--secondary)]"></div>
-  </section>
-  </Layout>
+      <div class="mb-6">
+        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+      </div>
+    </div>
+  </main>
+  <div class="fixed bottom-0 left-0 right-0 h-24 bg-[var(--muted)] dark:bg-[var(--secondary)] z-10" />
+</Layout>
